@@ -1,11 +1,14 @@
+import Navigator from "@/components/common/navigator";
+
 const PostsLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
   return (
-    <div className="grid grid-cols-1 gap-x-[20px]">
-      <div>포스팅 목록입니다.</div>
+    <div className="w-full">
+      {/* <div>포스팅 목록입니다.</div> */}
+      <Navigator />
       {children}
     </div>
   );
