@@ -1,5 +1,5 @@
-import PostCard from "@/components/common/post-card";
-import PostSelect from "../post-select";
+import PostSelect from "./post-select";
+import TripPostCard from "./trip-post-card";
 
 const TripPosts = () => {
   return (
@@ -8,9 +8,7 @@ const TripPosts = () => {
         <PostSelect />
       </div>
       <div className="flex items-center gap-x-[18px] w-full flex-wrap gap-y-[24px]">
-        <PostCard />
-        <PostCard />
-        <PostCard />
+        <TripPostCard />
       </div>
     </>
   );

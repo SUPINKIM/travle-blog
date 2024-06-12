@@ -1,6 +1,6 @@
 import LinkButton from "@/components/common/link-button";
 import Header from "@/components/home/header";
-import TripPosts from "@/components/home/layout/trip-posts";
+import TripPosts from "@/components/home/contents/trip-posts";
 
 export default function Home() {
   return (

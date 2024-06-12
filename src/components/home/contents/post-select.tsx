@@ -6,7 +6,7 @@ import {
   SelectItem,
   SelectValue,
   SelectContent,
-} from "../ui/select";
+} from "../../ui/select";
 
 enum Countries {
   KOTA_KINABALU = "Kota Kinabalu",
@@ -19,12 +19,14 @@ enum Countries {
 }
 
 const PostSelect = () => {
-  const selectedItemRef = useRef<HTMLDivElement | null>(null);
+  const selectNewCountry = (value: Countries) => {
+    console.log(value);
+  };
 
   return (
-    <Select>
+    <Select onValueChange={selectNewCountry}>
       <SelectTrigger className="max-w-[200px]">
-        <SelectValue placeholder="country" ref={selectedItemRef} />
+        <SelectValue placeholder="country" />
       </SelectTrigger>
       <SelectContent>
         {Object.values(Countries).map((country) => (
