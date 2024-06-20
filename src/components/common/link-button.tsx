@@ -9,11 +9,16 @@ import { twMerge } from "tailwind-merge";
 const LinkButton = ({
   label,
   className,
+  link,
 }: {
   label: string;
-  link?: string;
+  link: string;
   className?: string;
 }) => {
+  const handleClick = () => {
+    window.open(link, "_blank");
+  };
+
   return (
     <Card
       className={twMerge(
@@ -24,7 +29,7 @@ const LinkButton = ({
         <CardTitle className="leading-[22px] break-keep">{label}</CardTitle>
       </CardHeader>
       <div className="pr-[20px]">
-        <Button variant="outline" size="icon">
+        <Button onClick={handleClick} variant="outline" size="icon">
           <ChevronRightIcon className="h-4 w-4" />
         </Button>
       </div>
