@@ -38,15 +38,13 @@ const PostDetailPage = async ({ params }: { params: { id: string } }) => {
     );
   }
 
-  console.log(data);
-
   return (
     <div className="w-full flex justify-center p-[24px] gap-[8px] flex-col items-center">
       <h1 className="text-[28px] font-semibold">{data.title}</h1>
       {data.summary && <p className="mt-[16px]">{data.summary}</p>}
-      <div className="contenst max-w-[720px] mt-[32px] grid grid-cols-1 gap-[12px] justify-center px-[8px] bg-gray-50 rounded-[8px]">
+      <div className="content max-w-[800px] mt-[32px] grid grid-cols-1 gap-[12px] justify-center px-[8px] bg-gray-50 rounded-[8px]">
         {data.contents.map(({ image, texts }) => (
-          <p key={texts} className="p-[8px]">
+          <p key={texts} className="p-[16px]">
             {texts}
           </p>
         ))}
