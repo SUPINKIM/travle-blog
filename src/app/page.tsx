@@ -9,7 +9,7 @@ export default function Home() {
       <div className="mt-[16px] flex items-center gap-[12px] flex-wrap">
         <LinkButton
           link="https://cut-decade-d21.notion.site/b478021d66f6462182a9a89c5855140c?pvs=4"
-          label="운영자는 누구인가? 🤔 이력서 보러 가기"
+          label="운영자는 누구인가? 🤔"
         />
         <LinkButton link="" label="최신 포스팅 보러 가기" />
       </div>

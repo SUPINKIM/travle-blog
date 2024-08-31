@@ -70,7 +70,7 @@ const TripPostCards: FC<TripPostCardsProps> = ({ country }) => {
         )
       )}
       {!PostLists[country as Countries].length && (
-        <div className="w-[400px] bg-gray-200 rounded-[8px] h-[46px] flex items-center justify-center mt-[28px]">
+        <div className="px-[20px] py-[32px] h-[220px] bg-gray-200 rounded-[8px] flex items-center justify-center mt-[28px]">
           🙇‍♀️ 포스트를 준비중입니다... 조금만 기다려주세요.!
         </div>
       )}
