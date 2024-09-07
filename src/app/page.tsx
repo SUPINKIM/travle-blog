@@ -1,6 +1,7 @@
 import LinkButton from "@/components/common/link-button";
 import Header from "@/components/home/header";
 import TripPosts from "@/components/home/contents/trip-posts";
+import ImageCarousel from "@/components/home/contents/images/image-carousel";
 
 export default function Home() {
   return (
@@ -13,7 +14,8 @@ export default function Home() {
         />
         <LinkButton link="" label="최신 포스팅 보러 가기" />
       </div>
-      <div className="mt-[28px]">
+      <div className="mt-[28px] grid grid-cols-1 gap-y-[8px] w-full">
+        <ImageCarousel />
         <TripPosts />
       </div>
     </div>
