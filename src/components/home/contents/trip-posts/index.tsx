@@ -1,7 +1,7 @@
 "use client";
 
 import TripPostSelect from "./trip-post-select";
-import TripPostCards from "./trip-post-cards";
+import TripPostCards from "@/components/home/contents/trip-post-cards";
 import { useState } from "react";
 
 const TripPosts = () => {

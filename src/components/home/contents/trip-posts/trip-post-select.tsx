@@ -6,8 +6,8 @@ import {
   SelectItem,
   SelectValue,
   SelectContent,
-} from "../../ui/select";
-import { Countries } from "./types";
+} from "@/components/ui/select";
+import { Countries } from "../types";
 
 interface TripPostSelectProps {
   setCountry: Dispatch<SetStateAction<string>>;

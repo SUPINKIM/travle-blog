@@ -1,6 +1,6 @@
 "use client";
 
-import TripPostSelect from "@/components/home/contents/trip-post-select";
+import TripPostSelect from "@/components/home/contents/trip-posts/trip-post-select";
 
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
