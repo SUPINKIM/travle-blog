@@ -1,3 +1,3 @@
 ✈️ HOME 
 
-![스크린샷 2024-08-31 오후 6 21 58](https://github.com/user-attachments/assets/86acb6ce-1f78-4876-b35f-8069b866e4d6)
+<img width="1491" alt="스크린샷 2024-09-07 오후 9 58 59" src="https://github.com/user-attachments/assets/ebb867c2-ba00-45b5-9e21-ca3e904d5481">
