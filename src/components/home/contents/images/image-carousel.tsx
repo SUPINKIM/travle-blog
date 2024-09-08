@@ -12,40 +12,12 @@ import {
 import ImageCarouselItem from "./image-carousel-item";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback, useEffect, useState } from "react";
-
-const CAROUSEL_ITEMS: Array<{ imageUrl: string; alt: string }> = [
-  {
-    imageUrl: "/kota-kinabalu/kota1.png",
-    alt: "kota1",
-  },
-  {
-    imageUrl: "/japan/japan1.png",
-    alt: "japan1",
-  },
-  {
-    imageUrl: "/japan/japan2.png",
-    alt: "japan2",
-  },
-  {
-    imageUrl: "/paris/paris1.png",
-    alt: "paris1",
-  },
-  {
-    imageUrl: "/hongkong/hongkong1.png",
-    alt: "hongkong1",
-  },
-  {
-    imageUrl: "/london/london1.png",
-    alt: "london1",
-  },
-  {
-    imageUrl: "/london/london2.png",
-    alt: "london2",
-  },
-];
+import { CAROUSEL_ITEMS } from "./constant";
 
 const ImageCarousel = () => {
   const [api, setAPi] = useState<CarouselApi>();
+
+  const [images, setImages] = useState([...CAROUSEL_ITEMS]);
 
   const restartSlides = useCallback(() => {
     api?.plugins().autoplay.play();
@@ -59,6 +31,23 @@ const ImageCarousel = () => {
     };
   }, [api, restartSlides]);
 
+  useEffect(() => {
+    images.map(({ imageUrl }, idx) =>
+      fetch("/api/base64", {
+        method: "POST",
+        body: JSON.stringify({ imageUrl }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setImages((prev) =>
+            prev.map((value, i) =>
+              i === idx ? { ...value, blurDataURL: data.base64Url } : value
+            )
+          );
+        })
+    );
+  }, []);
+
   return (
     <div className="select-none">
       <Carousel
@@ -69,7 +58,7 @@ const ImageCarousel = () => {
         }}
         plugins={[
           Autoplay({
-            delay: 4000,
+            delay: 3000,
             stopOnMouseEnter: true,
             stopOnInteraction: true,
           }),
@@ -79,12 +68,18 @@ const ImageCarousel = () => {
         <CarouselPrevious className="left-[-2px] z-10" />
         <CarouselNext className="right-[-16px] z-10" />
         <CarouselContent className="-ml-1">
-          {CAROUSEL_ITEMS.map(({ imageUrl, alt }) => (
+          {images.map(({ imageUrl, alt, blurDataURL }) => (
             <CarouselItem
               key={alt}
-              className="flex items-center justify-center sm:basis-1/2 md:basis-1/3 xl:basis-1/4"
+              className="flex items-center h-[340px] justify-center sm:basis-1/2 md:basis-1/3 xl:basis-1/4"
             >
-              <ImageCarouselItem imageUrl={imageUrl} alt={alt} />
+              {blurDataURL && (
+                <ImageCarouselItem
+                  imageUrl={imageUrl}
+                  alt={alt}
+                  base64Url={blurDataURL}
+                />
+              )}
             </CarouselItem>
           ))}
         </CarouselContent>

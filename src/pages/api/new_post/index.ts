@@ -29,6 +29,7 @@ export default async function handler(
 
   if (save) {
     res.status(200).json({ message: "success" });
+    return;
   }
   res.status(500).json({ message: "fail" });
 }
