@@ -2,6 +2,7 @@
 
 import {
   Carousel,
+  CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
@@ -10,6 +11,7 @@ import {
 
 import ImageCarouselItem from "./image-carousel-item";
 import Autoplay from "embla-carousel-autoplay";
+import { useCallback, useEffect, useState } from "react";
 
 const CAROUSEL_ITEMS: Array<{ imageUrl: string; alt: string }> = [
   {
@@ -43,20 +45,36 @@ const CAROUSEL_ITEMS: Array<{ imageUrl: string; alt: string }> = [
 ];
 
 const ImageCarousel = () => {
+  const [api, setAPi] = useState<CarouselApi>();
+
+  const restartSlides = useCallback(() => {
+    api?.plugins().autoplay.play();
+  }, [api]);
+
+  useEffect(() => {
+    api?.containerNode().addEventListener("mouseleave", restartSlides);
+
+    return () => {
+      api?.containerNode().removeEventListener("mouseleave", restartSlides);
+    };
+  }, [api, restartSlides]);
+
   return (
     <div className="select-none">
       <Carousel
-        className="py-[16px] border-y border-gray-300 w-full relative z-0"
+        className="py-[16px] border-b border-gray-300 w-full relative z-0"
         opts={{
           align: "start",
           loop: true,
         }}
         plugins={[
           Autoplay({
-            delay: 5000,
+            delay: 4000,
+            stopOnMouseEnter: true,
             stopOnInteraction: true,
           }),
         ]}
+        setApi={setAPi}
       >
         <CarouselPrevious className="left-[-2px] z-10" />
         <CarouselNext className="right-[-16px] z-10" />
