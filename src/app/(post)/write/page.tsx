@@ -76,7 +76,10 @@ const WritePosts = () => {
       return;
     }
 
-    toast({ description: "게시글이 성공적으로 업로드 되었습니다." });
+    toast({
+      description: "게시글이 성공적으로 업로드 되었습니다.",
+      className: "bg-green-600 text-white",
+    });
   };
 
   return (
@@ -93,6 +96,7 @@ const WritePosts = () => {
         <TripPostSelect setCountry={setCountry} />
         <div className="flex items-center gap-x-[8px] justify-end">
           <Button
+            disabled
             onClick={handleTemporarySave}
             variant="destructive"
             className="w-[100px] h-[42px]"
