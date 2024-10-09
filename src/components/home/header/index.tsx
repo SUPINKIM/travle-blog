@@ -14,9 +14,9 @@ const Header = () => {
           <h6 className="text-gray-800 text-[14px]">여행순이의 여행 일기장</h6>
         </div>
       </div>
-      <Link href="/write">
+      {/* <Link href="/write">
         <Button>새 글 작성하기</Button>
-      </Link>
+      </Link> */}
     </div>
   );
 };
