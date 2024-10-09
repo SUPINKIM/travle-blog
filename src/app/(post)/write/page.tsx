@@ -62,21 +62,24 @@ const WritePosts = () => {
 
     const text = title.current?.value || "";
 
-    const { message } = await createPost({
-      title: text,
-      country,
-      contents: value,
-    });
+    // const { message } = await createPost({
+    //   title: text,
+    //   country,
+    //   contents: value,
+    // });
 
-    if (message === "fail") {
-      toast({
-        description: "게시글 업로드에 실패했습니다. 잠시 후 다시 시도해주세요.",
-        variant: "destructive",
-      });
-      return;
-    }
+    // if (message === "fail") {
+    //   toast({
+    //     description: "게시글 업로드에 실패했습니다. 잠시 후 다시 시도해주세요.",
+    //     variant: "destructive",
+    //   });
+    //   return;
+    // }
 
-    toast({ description: "게시글이 성공적으로 업로드 되었습니다." });
+    // toast({
+    //   description: "게시글이 성공적으로 업로드 되었습니다.",
+    //   className: "bg-green-600 text-white",
+    // });
   };
 
   return (
@@ -93,6 +96,7 @@ const WritePosts = () => {
         <TripPostSelect setCountry={setCountry} />
         <div className="flex items-center gap-x-[8px] justify-end">
           <Button
+            disabled
             onClick={handleTemporarySave}
             variant="destructive"
             className="w-[100px] h-[42px]"

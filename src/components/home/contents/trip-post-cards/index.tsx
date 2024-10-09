@@ -10,6 +10,7 @@ const PostLists: Record<
   Countries,
   Array<{ id: number; imageUrl: string; title: string; subTitle?: string }>
 > = {
+  [Countries.AUSTRALIA]: [],
   [Countries.ENGLAND]: [],
   [Countries.FRANCE]: [],
   [Countries.HONG_KONG]: [],
@@ -28,7 +29,7 @@ const PostLists: Record<
       title: "코타키나발루 여행기2",
       imageUrl: "/kota-kinabalu/swimming-pool.png",
       subTitle:
-        "with my parents _ that is my first abroad trip with familly 💜",
+        "with my parents _ that is my first abroad trip with familly 💛",
     },
   ],
   [Countries.JAPAN]: [
@@ -70,7 +71,7 @@ const TripPostCards: FC<TripPostCardsProps> = ({ country }) => {
         )
       )}
       {!PostLists[country as Countries].length && (
-        <div className="px-[20px] py-[32px] h-[220px] bg-gray-200 rounded-[8px] flex items-center justify-center mt-[28px]">
+        <div className="px-[20px] py-[32px] border border-gray-300 rounded-[8px] flex items-center justify-center mt-[28px]">
           🙇‍♀️ 포스트를 준비중입니다... 조금만 기다려주세요.!
         </div>
       )}

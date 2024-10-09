@@ -15,13 +15,13 @@ const ImageCarouselItem: FC<ImageCarouselItemProps> = ({
   alt = imageUrl,
 }) => {
   return (
-    <div className="border h-[340px] w-[400px] border-gray-100 relative rounded-[8px]">
+    <div className="border h-[320px] w-[360px] border-gray-100 relative rounded-[8px]">
       <Image
         className="rounded-[8px]"
         src={imageUrl}
         alt={alt}
         fill
-        sizes=""
+        sizes="auto"
         placeholder="blur"
         blurDataURL={base64Url}
       />

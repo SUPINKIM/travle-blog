@@ -14,6 +14,8 @@ const POST = async (params: RequestData): Promise<{ save: boolean }> => {
       "Pinged your deployment. You successfully connected to MongoDB!"
     );
 
+    await client.close();
+
     return { save: true };
   } catch (error) {
     return { save: false };
@@ -24,7 +26,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  console.log(req.body);
   const { save } = await POST(JSON.parse(req.body));
 
   if (save) {

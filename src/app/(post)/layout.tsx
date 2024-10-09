@@ -1,4 +1,5 @@
 import Navigator from "@/components/common/navigator";
+import { Toaster } from "@/components/ui/toaster";
 
 const PostsLayout = ({
   children,
@@ -9,6 +10,7 @@ const PostsLayout = ({
     <div className="w-full">
       {/* <div>포스팅 목록입니다.</div> */}
       <Navigator />
+      <Toaster />
       {children}
     </div>
   );
