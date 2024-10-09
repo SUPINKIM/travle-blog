@@ -12,7 +12,7 @@ const TripPosts = () => {
       <div className="my-[18px]">
         <TripPostSelect setCountry={setCountry} />
       </div>
-      <div className="flex items-center gap-x-[18px] w-full flex-wrap gap-y-[24px]">
+      <div className="flex items-center min-[746px]:justify-start justify-center gap-x-[18px] w-full flex-wrap gap-y-[24px]">
         <TripPostCards country={country} />
       </div>
     </>
