@@ -10,6 +10,7 @@ const PostLists: Record<
   Countries,
   Array<{ id: number; imageUrl: string; title: string; subTitle?: string }>
 > = {
+  [Countries.AUSTRALIA]: [],
   [Countries.ENGLAND]: [],
   [Countries.FRANCE]: [],
   [Countries.HONG_KONG]: [],
