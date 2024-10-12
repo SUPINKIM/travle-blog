@@ -8,6 +8,7 @@ import { CAROUSEL_ITEMS } from "@/components/home/contents/images/constant";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { getPlaiceholder } from "plaiceholder";
+import WorldMap from "@/components/home/contents/map";
 
 export default async function Home() {
   const newImages = [...CAROUSEL_ITEMS];
@@ -26,7 +27,7 @@ export default async function Home() {
   });
 
   return (
-    <div className="w-full grid grid-cols-1 px-[24px] py-[32px]">
+    <div className="w-full grid grid-cols-1 px-[16px] py-[32px]">
       <Header />
       <div className="mt-[12px] flex items-center gap-[12px] flex-wrap">
         <LinkButton
@@ -34,9 +35,10 @@ export default async function Home() {
           label="운영자는 누구인가? 🤔"
         />
       </div>
-      <div className="mt-[20px] grid grid-cols-1 gap-y-[8px] w-full">
+      <div className="mt-[20px] grid grid-cols-1 gap-y-[12px] w-full">
         <ImageCarousel images={newImages} />
         <TripPosts />
+        <WorldMap />
       </div>
     </div>
   );

@@ -8,7 +8,12 @@ interface TripPostCardsProps {
 
 const PostLists: Record<
   Countries,
-  Array<{ id: number; imageUrl: string; title: string; subTitle?: string }>
+  Array<{
+    id: number;
+    imageUrl: string;
+    title: string;
+    subTitle?: string;
+  }>
 > = {
   [Countries.AUSTRALIA]: [],
   [Countries.ENGLAND]: [],
