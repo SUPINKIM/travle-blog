@@ -11,7 +11,7 @@ const TripPosts = () => {
 
   return (
     <>
-      <div className="my-[18px]">
+      <div className="py-[12px]">
         <div className="flex gap-[8px] justify-between flex-wrap">
           <Button
             className="px-[20px] py-[24px] rounded-lg font-semibold text-[16px]"
@@ -22,7 +22,7 @@ const TripPosts = () => {
           <TripPostSelect setCountry={setCountry} />
         </div>
       </div>
-      <div className="flex items-center min-[746px]:justify-start justify-center gap-x-[18px] w-full flex-wrap gap-y-[24px]">
+      <div className="flex pb-[8px] items-center min-[746px]:justify-start justify-center gap-x-[18px] w-full flex-wrap gap-y-[24px]">
         <TripPostCards country={country} />
       </div>
     </>

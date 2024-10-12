@@ -37,7 +37,7 @@ const ImageCarousel = ({ images }: { images: Array<Image> }) => {
   return (
     <div className="select-none">
       <Carousel
-        className="py-[16px] border-b border-gray-300 w-full relative z-0"
+        className="py-[16px] border-b border-gray-200 w-full relative z-0"
         opts={{
           align: "start",
           loop: true,
@@ -53,7 +53,7 @@ const ImageCarousel = ({ images }: { images: Array<Image> }) => {
       >
         <CarouselPrevious className="left-[-2px] z-10" />
         <CarouselNext className="right-[-16px] z-10" />
-        <CarouselContent className="-ml-1">
+        <CarouselContent className="-ml-2">
           {images.map(({ imageUrl, alt, blurDataURL }) => (
             <CarouselItem
               key={alt}

@@ -5,6 +5,9 @@ import { Card, CardContent, CardFooter } from "../ui/card";
 import { FC } from "react";
 import Link from "next/link";
 
+const DEFAULT_BLUR_DATA_URL =
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8Vw8AAkEBX6r220kAAAAASUVORK5CYII=" as const;
+
 interface PostCardProps {
   id: number;
   imageUrl: string;
@@ -23,6 +26,8 @@ const PostCard: FC<PostCardProps> = ({ id, imageUrl, title, subTitle }) => {
               alt="thumbnail"
               sizes="140px"
               fill
+              placeholder="blur"
+              blurDataURL={DEFAULT_BLUR_DATA_URL}
               className="rounded-t-[12px]"
             />
           </div>
