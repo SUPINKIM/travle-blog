@@ -4,7 +4,7 @@ import Image from "next/image";
 import FlagButton from "./flag-button";
 import { useState } from "react";
 import { Countries } from "../types";
-import MapBackground from "./background";
+import MapCanvas from "./canvas";
 
 const WorldMap = () => {
   const [selectedCountry, setSelectedCountry] = useState<Countries>();
@@ -21,7 +21,7 @@ const WorldMap = () => {
         />
       </div>
       <div>
-        <MapBackground selectedCountry={selectedCountry} />
+        <MapCanvas selectedCountry={selectedCountry} />
       </div>
     </div>
   );

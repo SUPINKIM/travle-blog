@@ -26,15 +26,13 @@ const PostLists: Record<
       id: 1,
       title: "코타키나발루 여행기",
       imageUrl: "/kota-kinabalu/sunset.png",
-      subTitle:
-        "with my parents _ that is my first abroad trip with familly 💜",
+      subTitle: "with my parents _ that is my first abroad trip with family 💜",
     },
     {
       id: 2,
       title: "코타키나발루 여행기2",
       imageUrl: "/kota-kinabalu/swimming-pool.png",
-      subTitle:
-        "with my parents _ that is my first abroad trip with familly 💛",
+      subTitle: "with my parents _ that is my first abroad trip with family 💛",
     },
   ],
   [Countries.JAPAN]: [
