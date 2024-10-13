@@ -32,7 +32,7 @@ const MapCanvas: FC<MapCanvasProps> = ({ selectedCountry }) => {
 
   const [map, setMap] = useState(null);
 
-  const onLoad = useCallback(function callback(map) {
+  const onLoad = useCallback(function callback(map: any) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
     const bounds = new window.google.maps.LatLngBounds(hongkong, center);
     map.fitBounds(bounds);
@@ -42,7 +42,7 @@ const MapCanvas: FC<MapCanvasProps> = ({ selectedCountry }) => {
     setMap(map);
   }, []);
 
-  const onUnmount = useCallback(function callback(map) {
+  const onUnmount = useCallback(function callback(map: any) {
     setMap(null);
   }, []);
 
