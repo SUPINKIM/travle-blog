@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Countries } from "../types";
 import PostCard from "@/components/common/post-card";
+import Empty from "@/components/common/empty";
 
 interface TripPostCardsProps {
   country: string;
@@ -73,11 +74,7 @@ const TripPostCards: FC<TripPostCardsProps> = ({ country }) => {
           />
         )
       )}
-      {!PostLists[country as Countries].length && (
-        <div className="px-[20px] py-[32px] border border-gray-300 rounded-[8px] flex items-center justify-center mt-[28px]">
-          🙇‍♀️ 포스트를 준비중입니다... 조금만 기다려주세요.!
-        </div>
-      )}
+      {!PostLists[country as Countries].length && <Empty />}
     </>
   );
 };
