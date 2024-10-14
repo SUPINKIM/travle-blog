@@ -29,7 +29,7 @@ export const location: Record<Countries, Location> = {
   [Countries.SINGAPORE]: {
     // Singapore
     lat: 1.3521,
-    lng: 105.8542,
+    lng: 103.8198,
   },
   [Countries.JAPAN]: {
     // Osaka

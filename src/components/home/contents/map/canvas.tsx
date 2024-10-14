@@ -4,7 +4,7 @@ import { FC, useCallback, useState } from "react";
 import { Countries } from "../types";
 
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
-import { location, Location, locationTitle } from "./types";
+import { location, locationTitle } from "./types";
 
 interface MapCanvasProps {
   selectedCountry?: Countries;
@@ -22,7 +22,7 @@ const MapCanvas: FC<MapCanvasProps> = ({ selectedCountry }) => {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
     const bounds = new window.google.maps.LatLngBounds(
       location.Australia,
-      location.Singapore
+      location.France
     );
     map.fitBounds(bounds);
 
@@ -36,11 +36,12 @@ const MapCanvas: FC<MapCanvasProps> = ({ selectedCountry }) => {
   return isLoaded ? (
     <div className="w-full bg-transparent h-[500px] px-[16px] sm:h-[680px]">
       <GoogleMap
+        mapContainerStyle={{ height: "100%", width: "100%" }}
         mapContainerClassName="h-full"
         center={
           selectedCountry ? location[selectedCountry] : location.Australia
         }
-        zoom={3}
+        zoom={2}
         onLoad={onLoad}
         onUnmount={onUnmount}
       >
