@@ -3,26 +3,12 @@
 import { FC, useCallback, useState } from "react";
 import { Countries } from "../types";
 
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+import { location, Location, locationTitle } from "./types";
 
 interface MapCanvasProps {
   selectedCountry?: Countries;
 }
-
-const containerStyle = {
-  width: "100%",
-  height: "50%",
-};
-
-const center = {
-  lat: -33.8688,
-  lng: 151.2093,
-};
-
-const hongkong = {
-  lat: 22.3964,
-  lng: 114.1095,
-};
 
 const MapCanvas: FC<MapCanvasProps> = ({ selectedCountry }) => {
   const { isLoaded } = useJsApiLoader({
@@ -34,10 +20,11 @@ const MapCanvas: FC<MapCanvasProps> = ({ selectedCountry }) => {
 
   const onLoad = useCallback(function callback(map: any) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
-    const bounds = new window.google.maps.LatLngBounds(hongkong, center);
+    const bounds = new window.google.maps.LatLngBounds(
+      location.Australia,
+      location.Singapore
+    );
     map.fitBounds(bounds);
-
-    console.log(map);
 
     setMap(map);
   }, []);
@@ -47,14 +34,23 @@ const MapCanvas: FC<MapCanvasProps> = ({ selectedCountry }) => {
   }, []);
 
   return isLoaded ? (
-    <div className="w-full h-[500px] px-[16px] sm:h-[800px]">
+    <div className="w-full bg-transparent h-[500px] px-[16px] sm:h-[680px]">
       <GoogleMap
-        mapContainerClassName="w-full h-full"
-        center={center}
-        zoom={6}
+        mapContainerClassName="h-full"
+        center={
+          selectedCountry ? location[selectedCountry] : location.Australia
+        }
+        zoom={3}
         onLoad={onLoad}
         onUnmount={onUnmount}
-      ></GoogleMap>
+      >
+        {selectedCountry && (
+          <Marker
+            position={location[selectedCountry]}
+            title={locationTitle[selectedCountry]}
+          ></Marker>
+        )}
+      </GoogleMap>
     </div>
   ) : (
     <div>loading...</div>
