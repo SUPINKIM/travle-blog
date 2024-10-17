@@ -35,7 +35,7 @@ const PostDetailPage = async ({ params }: { params: { id: string } }) => {
   const data = await getData(params.id);
 
   if (!data) {
-    return <Empty className="border-none text-[20px]" />;
+    return <Empty className="border-none text-[16px] font-semibold" />;
   }
 
   return (
