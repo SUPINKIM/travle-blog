@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useCallback, useState } from "react";
+import { FC, useLayoutEffect, useState } from "react";
 import { Countries } from "../types";
 
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
@@ -16,45 +16,32 @@ const MapCanvas: FC<MapCanvasProps> = ({ selectedCountry }) => {
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
   });
 
-  const [map, setMap] = useState(null);
+  const [zoom, setZoom] = useState(1);
 
-  const onLoad = useCallback(function callback(map: any) {
-    // This is just an example of getting and using the map instance!!! don't just blindly copy!
-    const bounds = new window.google.maps.LatLngBounds(
-      location.Australia,
-      location.France
-    );
-    map.fitBounds(bounds);
-
-    setMap(map);
-  }, []);
-
-  const onUnmount = useCallback(function callback(map: any) {
-    setMap(null);
+  useLayoutEffect(() => {
+    setZoom(6);
   }, []);
 
   return isLoaded ? (
-    <div className="w-full bg-transparent h-[500px] px-[16px] sm:h-[680px]">
+    <div className="w-full h-[280px] px-[16px] sm:h-[380px] md:h-[680px]">
       <GoogleMap
+        zoom={zoom}
         mapContainerStyle={{ height: "100%", width: "100%" }}
         mapContainerClassName="h-full"
         center={
           selectedCountry ? location[selectedCountry] : location.Australia
         }
-        zoom={2}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
       >
         {selectedCountry && (
           <Marker
             position={location[selectedCountry]}
             title={locationTitle[selectedCountry]}
-          ></Marker>
+          />
         )}
       </GoogleMap>
     </div>
   ) : (
-    <div>loading...</div>
+    <div className="my-[8px] flex justify-center">loading...</div>
   );
 };
 
